@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ErtekelesController;
 use App\Http\Controllers\FelhasznaloController;
 use App\Http\Controllers\KommentController;
 use Illuminate\Http\Request;
@@ -23,3 +24,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::resource('/felhasznalos', FelhasznaloController::class);
 
 Route::resource('/komments', KommentController::class);
+
+Route::resource('/ertekeles', ErtekelesController::class);
