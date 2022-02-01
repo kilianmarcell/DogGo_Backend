@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\FelhasznaloRequest;
-use App\Models\Felhasznalo;
+use App\Http\Requests\UserRequest;
+use App\Models\User;
+use Illuminate\Http\Request;
 
-class FelhasznaloController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +15,8 @@ class FelhasznaloController extends Controller
      */
     public function index()
     {
-        $felhasznalos = Felhasznalo::all();
-        return response()->json($felhasznalos);
+        $user = User::all();
+        return response()->json($user);
     }
 
     /**
@@ -34,12 +35,12 @@ class FelhasznaloController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(FelhasznaloRequest $request)
+    public function store(UserRequest $request)
     {
-        $felhasznalo = new Felhasznalo();
-        $felhasznalo->fill($request->all());
-        $felhasznalo->save();
-        return response()->json($felhasznalo, 201);
+        $user = new User();
+        $user->fill($request->all());
+        $user->save();
+        return response()->json($user, 201);
     }
 
     /**
@@ -50,8 +51,8 @@ class FelhasznaloController extends Controller
      */
     public function show($id)
     {
-        $felhasznalo = Felhasznalo::findOrFail($id);
-        return response()->json($felhasznalo);
+        $user = User::findOrFail($id);
+        return response()->json($user);
     }
 
     /**
@@ -60,7 +61,7 @@ class FelhasznaloController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Felhasznalo $felhasznalo)
+    public function edit($id)
     {
         //
     }
@@ -72,12 +73,12 @@ class FelhasznaloController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(FelhasznaloRequest $request, $id)
+    public function update(UserRequest $request, $id)
     {
-        $felhasznalo = Felhasznalo::findOrFail($id);
-        $felhasznalo->fill($request->all());
-        $felhasznalo->save();
-        return response()->json($felhasznalo, 200);
+        $user = User::findOrFail($id);
+        $user->fill($request->all());
+        $user->save();
+        return response()->json($user, 200);
     }
 
     /**
@@ -88,7 +89,7 @@ class FelhasznaloController extends Controller
      */
     public function destroy($id)
     {
-        Felhasznalo::destroy($id);
+        User::destroy($id);
         return response()->noContent();
     }
 }
