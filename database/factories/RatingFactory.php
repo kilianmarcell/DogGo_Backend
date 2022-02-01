@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class KommentFactory extends Factory
+class RatingFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -14,7 +14,8 @@ class KommentFactory extends Factory
     public function definition()
     {
         return [
-            'szoveg' => $this->faker->text(),
+            'stars' => $this->faker->numberBetween(1, 5),
+            'description' => $this->faker->text(),
         ];
     }
 }

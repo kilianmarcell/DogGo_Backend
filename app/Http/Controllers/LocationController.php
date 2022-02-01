@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ErtekelesRequest;
-use App\Models\Ertekeles;
-use Illuminate\Http\Request;
+use App\Http\Requests\LocationRequest;
+use App\Models\Location;
 
-class ErtekelesController extends Controller
+class LocationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,8 @@ class ErtekelesController extends Controller
      */
     public function index()
     {
-        $ertekeles = Ertekeles::all();
-        return response()->json($ertekeles);
+        $location = Location::all();
+        return response()->json($location);
     }
 
     /**
@@ -35,33 +34,33 @@ class ErtekelesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(LocationRequest $request)
     {
-        $ertekeles = new Ertekeles();
-        $ertekeles->fill($request->all());
-        $ertekeles->save();
-        return response()->json($ertekeles, 201);
+        $location = new Location();
+        $location->fill($request->all());
+        $location->save();
+        return response()->json($location, 201);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Location  $location
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $ertek = Ertekeles::findOrFail($id);
-        return response()->json($ertek);
+        $hely = Location::findOrFail($id);
+        return response()->json($hely);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Location  $location
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Location $location)
     {
         //
     }
@@ -70,26 +69,26 @@ class ErtekelesController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Location  $location
      * @return \Illuminate\Http\Response
      */
-    public function update(ErtekelesRequest $request, $id)
+    public function update(LocationRequest $request, $id)
     {
-        $felhasznalo = Ertekeles::findOrFail($id);
-        $felhasznalo->fill($request->all());
-        $felhasznalo->save();
-        return response()->json($felhasznalo, 200);
+        $location = Location::findOrFail($id);
+        $location->fill($request->all());
+        $location->save();
+        return response()->json($location, 200);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Location  $location
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        Ertekeles::destroy($id);
+        Location::destroy($id);
         return response()->noContent();
     }
 }

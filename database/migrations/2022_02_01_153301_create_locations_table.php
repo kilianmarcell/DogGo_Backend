@@ -1,12 +1,10 @@
 <?php
 
-use App\Models\Felhasznalo;
-use App\Models\Hely;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateErtekelesTable extends Migration
+class CreateLocationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,10 +13,11 @@ class CreateErtekelesTable extends Migration
      */
     public function up()
     {
-        Schema::create('ertekeles', function (Blueprint $table) {
+        Schema::create('locations', function (Blueprint $table) {
             $table->id();
-            $table->integer('ertek');
-            $table->string('komment');
+            $table->string('name');
+            $table->double('lat')->nullable();
+            $table->double('lng')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ class CreateErtekelesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ertekeles');
+        Schema::dropIfExists('locations');
     }
 }

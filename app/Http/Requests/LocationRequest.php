@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class HelyRequest extends FormRequest
+class LocationRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,7 @@ class HelyRequest extends FormRequest
     public function rules()
     {
         return [
-            'nev' => 'required|string|max:255',
+            'name' => 'required|string|max:255',
             'lat' => 'required|numeric',
             'lng' => 'required|numeric',
         ];
