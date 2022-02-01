@@ -33,6 +33,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('felhasznalok');
+        Schema::dropIfExists('user');
     }
 }
