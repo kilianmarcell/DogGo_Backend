@@ -50,9 +50,10 @@ class FelhasznaloController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Felhasznalo $felhasznalo)
+    public function show(int $id)
     {
-        return response()->json($felhasznalo);
+        $felhasznalo = Painting::findOrFail($id);
+        return response()->json($p);
     }
 
     /**
@@ -73,8 +74,9 @@ class FelhasznaloController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(FelhasznaloRequest $request, Felhasznalo $felhasznalo)
+    public function update(FelhasznaloRequest $request, $id)
     {
+        $felhasznalo = Painting::findOrFail($id);
         $felhasznalo->fill($request->all());
         $felhasznalo->save();
         return response()->json($felhasznalo, 200);
