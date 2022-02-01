@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Ertekeles extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'ertek',
+        'komment',
+    ];
 }
