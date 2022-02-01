@@ -73,11 +73,12 @@ class ErtekelesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ErtekelesRequest $request, Ertekeles $ertekeles)
+    public function update(ErtekelesRequest $request, $id)
     {
-        $ertekeles->fill($request->all());
-        $ertekeles->save();
-        return response()->json($ertekeles, 200);
+        $felhasznalo = Ertekeles::findOrFail($id);
+        $felhasznalo->fill($request->all());
+        $felhasznalo->save();
+        return response()->json($felhasznalo, 200);
     }
 
     /**

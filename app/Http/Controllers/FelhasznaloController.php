@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\FelhasznaloRequest;
-use App\Http\Requests\FelhasznaloUpdateRequest;
 use App\Models\Felhasznalo;
-use Illuminate\Http\Request;
 
 class FelhasznaloController extends Controller
 {
@@ -76,7 +74,7 @@ class FelhasznaloController extends Controller
      */
     public function update(FelhasznaloRequest $request, $id)
     {
-        $felhasznalo = Painting::findOrFail($id);
+        $felhasznalo = Felhasznalo::findOrFail($id);
         $felhasznalo->fill($request->all());
         $felhasznalo->save();
         return response()->json($felhasznalo, 200);
