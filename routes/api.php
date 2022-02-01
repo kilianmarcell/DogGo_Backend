@@ -26,8 +26,6 @@ Route::resource('/felhasznalos', FelhasznaloController::class);
 
 Route::resource('/komments', KommentController::class);
 
-<<<<<<< HEAD
 Route::resource('/helies', HelyController::class);
-=======
+
 Route::resource('/ertekeles', ErtekelesController::class);
->>>>>>> c7d79227ff7c2aee4f4c6ab2aaa3f7ceb98f9e99
