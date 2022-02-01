@@ -20,4 +20,6 @@ Route::resource('/users', UserController::class);
 
 Route::resource('/komments', KommentController::class);
 
+Route::resource('/helies', HelyController::class);
+
 Route::resource('/ertekeles', ErtekelesController::class);

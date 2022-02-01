@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Hely extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'nev',
+        'lat',
+        'lng',
+    ];
 }
