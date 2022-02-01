@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\FelhasznaloRequest;
-use App\Http\Requests\FelhasznaloUpdateRequest;
-use App\Models\Felhasznalo;
+use App\Http\Requests\KommentRequest;
+use App\Models\Komment;
 use Illuminate\Http\Request;
 
-class FelhasznaloController extends Controller
+class KommentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +14,9 @@ class FelhasznaloController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $felhasznalos = Felhasznalo::all();
-        return response()->json($felhasznalos);
+    {        
+        $komments = Komment::all();
+        return response()->json($komments);
     }
 
     /**
@@ -36,12 +35,12 @@ class FelhasznaloController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(FelhasznaloRequest $request)
+    public function store(KommentRequest $request)
     {
-        $felhasznalo = new Felhasznalo();
-        $felhasznalo->fill($request->all());
-        $felhasznalo->save();
-        return response()->json($felhasznalo, 201);
+        $komments = new Komment();
+        $komments->fill($request->all());
+        $komments->save();
+        return response()->json($komments, 201);
     }
 
     /**
@@ -52,8 +51,8 @@ class FelhasznaloController extends Controller
      */
     public function show($id)
     {
-        $felhasznalo = Felhasznalo::findOrFail($id);
-        return response()->json($felhasznalo);
+        $komment = Komment::findOrFail($id);
+        return response()->json($komment);
     }
 
     /**
@@ -62,7 +61,7 @@ class FelhasznaloController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Felhasznalo $felhasznalo)
+    public function edit($id)
     {
         //
     }
@@ -74,11 +73,11 @@ class FelhasznaloController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(FelhasznaloRequest $request, Felhasznalo $felhasznalo)
+    public function update(KommentRequest $request, Komment $komment)
     {
-        $felhasznalo->fill($request->all());
-        $felhasznalo->save();
-        return response()->json($felhasznalo, 200);
+        $komment->fill($request->all());
+        $komment->save();
+        return response()->json($komment, 200);
     }
 
     /**
@@ -89,7 +88,7 @@ class FelhasznaloController extends Controller
      */
     public function destroy($id)
     {
-        Felhasznalo::destroy($id);
+        Komment::destroy($id);
         return response()->noContent();
     }
 }
