@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\HelyRequest;
-use App\Models\Hely;
-use Illuminate\Http\Request;
+use App\Http\Requests\RatingRequest;
+use App\Models\Rating;
 
-class HelyController extends Controller
+class RatingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,8 @@ class HelyController extends Controller
      */
     public function index()
     {
-        $helys = Hely::all();
-        return response()->json($helys);
+        $rate = Rating::all();
+        return response()->json($rate);
     }
 
     /**
@@ -35,33 +34,33 @@ class HelyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(HelyRequest $request)
+    public function store(RatingRequest $request)
     {
-        $hely = new Hely();
-        $hely->fill($request->all());
-        $hely->save();
-        return response()->json($hely, 201);
+        $ertekeles = new Rating();
+        $ertekeles->fill($request->all());
+        $ertekeles->save();
+        return response()->json($ertekeles, 201);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Rating  $rating
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $hely = Hely::findOrFail($id);
-        return response()->json($hely);
+        $rate = Rating::findOrFail($id);
+        return response()->json($rate);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Rating  $rating
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Rating $rating)
     {
         //
     }
@@ -70,26 +69,26 @@ class HelyController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Rating  $rating
      * @return \Illuminate\Http\Response
      */
-    public function update(HelyRequest $request, $id)
+    public function update(RatingRequest $request, $id)
     {
-        $hely = Hely::findOrFail($id);
-        $hely->fill($request->all());
-        $hely->save();
-        return response()->json($hely, 200);
+        $rating = Rating::findOrFail($id);
+        $rating->fill($request->all());
+        $rating->save();
+        return response()->json($rating, 200);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Rating  $rating
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        Hely::destroy($id);
+        Rating::destroy($id);
         return response()->noContent();
     }
 }
