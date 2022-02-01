@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ErtekelesController;
 use App\Http\Controllers\KommentController;
+use App\Http\Controllers\LocationController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,6 +21,6 @@ Route::resource('/users', UserController::class);
 
 Route::resource('/komments', KommentController::class);
 
-Route::resource('/helies', HelyController::class);
+Route::resource('/locations', LocationController::class);
 
 Route::resource('/ertekeles', ErtekelesController::class);
