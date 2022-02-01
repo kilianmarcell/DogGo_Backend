@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\FelhasznaloRequest;
-use App\Models\Felhasznalo;
+use App\Http\Requests\ErtekelesRequest;
+use App\Models\Ertekeles;
+use Illuminate\Http\Request;
 
-class FelhasznaloController extends Controller
+class ErtekelesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +15,8 @@ class FelhasznaloController extends Controller
      */
     public function index()
     {
-        $felhasznalos = Felhasznalo::all();
-        return response()->json($felhasznalos);
+        $ertekeles = Ertekeles::all();
+        return response()->json($ertekeles);
     }
 
     /**
@@ -34,12 +35,12 @@ class FelhasznaloController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(FelhasznaloRequest $request)
+    public function store(Request $request)
     {
-        $felhasznalo = new Felhasznalo();
-        $felhasznalo->fill($request->all());
-        $felhasznalo->save();
-        return response()->json($felhasznalo, 201);
+        $ertekeles = new Ertekeles();
+        $ertekeles->fill($request->all());
+        $ertekeles->save();
+        return response()->json($ertekeles, 201);
     }
 
     /**
@@ -50,8 +51,8 @@ class FelhasznaloController extends Controller
      */
     public function show($id)
     {
-        $felhasznalo = Felhasznalo::findOrFail($id);
-        return response()->json($felhasznalo);
+        $ertek = Ertekeles::findOrFail($id);
+        return response()->json($ertek);
     }
 
     /**
@@ -60,7 +61,7 @@ class FelhasznaloController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Felhasznalo $felhasznalo)
+    public function edit($id)
     {
         //
     }
@@ -72,9 +73,9 @@ class FelhasznaloController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(FelhasznaloRequest $request, $id)
+    public function update(ErtekelesRequest $request, $id)
     {
-        $felhasznalo = Felhasznalo::findOrFail($id);
+        $felhasznalo = Ertekeles::findOrFail($id);
         $felhasznalo->fill($request->all());
         $felhasznalo->save();
         return response()->json($felhasznalo, 200);
@@ -88,7 +89,7 @@ class FelhasznaloController extends Controller
      */
     public function destroy($id)
     {
-        Felhasznalo::destroy($id);
+        Ertekeles::destroy($id);
         return response()->noContent();
     }
 }
