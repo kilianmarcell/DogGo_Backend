@@ -13,6 +13,7 @@ class Felhasznalo extends Model
         'felhasznalonev',
         'email',
         'password',
+        'jogosultsag'
     ];
 
     protected $hidden = [
