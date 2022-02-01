@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Komment extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'szoveg'
+    ];
 }
