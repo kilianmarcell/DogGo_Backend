@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ErtekelesController;
+use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\KommentController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -23,3 +24,5 @@ Route::resource('/komments', KommentController::class);
 Route::resource('/helies', HelyController::class);
 
 Route::resource('/ertekeles', ErtekelesController::class);
+
+Route::resource('/feedbacks', FeedbackController::class);

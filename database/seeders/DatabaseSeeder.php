@@ -17,5 +17,6 @@ class DatabaseSeeder extends Seeder
         \App\Models\Komment::factory(15)->create();
         \App\Models\Hely::factory(15)->create();
         \App\Models\Ertekeles::factory(15)->create();
+        \App\Models\Feedback::factory(15)->create();
     }
 }
