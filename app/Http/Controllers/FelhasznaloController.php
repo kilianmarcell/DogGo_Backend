@@ -73,7 +73,7 @@ class FelhasznaloController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(FelhasznaloUpdateRequest $request, Felhasznalo $felhasznalo)
+    public function update(FelhasznaloRequest $request, Felhasznalo $felhasznalo)
     {
         $felhasznalo->fill($request->all());
         $felhasznalo->save();
