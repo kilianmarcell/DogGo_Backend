@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\FelhasznaloController;
+use App\Http\Controllers\HelyController;
 use App\Http\Controllers\KommentController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -23,3 +24,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::resource('/felhasznalos', FelhasznaloController::class);
 
 Route::resource('/komments', KommentController::class);
+
+Route::resource('/helies', HelyController::class);
