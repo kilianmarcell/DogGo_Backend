@@ -8,4 +8,19 @@ use Illuminate\Database\Eloquent\Model;
 class Felhasznalo extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'felhasznalonev',
+        'email',
+        'password',
+    ];
+
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+
+    protected $casts = [
+        'regisztracio_datum' => 'datetime',
+    ];
 }
