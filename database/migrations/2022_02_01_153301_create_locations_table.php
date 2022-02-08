@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Location;
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -18,6 +20,9 @@ class CreateLocationsTable extends Migration
             $table->string('name');
             $table->double('lat')->nullable();
             $table->double('lng')->nullable();
+            $table->foreignIdFor(User::class)
+                ->constrained()
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }
