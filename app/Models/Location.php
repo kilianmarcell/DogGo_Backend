@@ -23,12 +23,14 @@ class Location extends Model
         'id',
         'name',
         'lat',
-        'lng',
+        'lng',        
+        'user_id'
     ];
 
     protected $fillable = [
         'name',
         'lat',
         'lng',
+        'user_id'
     ];
 }
