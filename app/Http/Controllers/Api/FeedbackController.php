@@ -91,7 +91,7 @@ class FeedbackController extends Controller
     public function update(FeedbackUpdateRequest $request, int $id)
     {
         if ($request->isMethod('PUT')) {
-            $validator = Validator::make($request->all(), (new FeedbackRequest())->rules());
+            $validator = Validator::make($request->all(), (new FeedbackUpdateRequest())->rules());
             if($validator->fails()) {
                 $errormsg = "";
                 foreach ($validator->errors()->all() as $error) {

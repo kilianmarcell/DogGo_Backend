@@ -91,7 +91,7 @@ class LocationController extends Controller
     public function update(LocationUpdateRequest $request, int $id)
     {
         if ($request->isMethod('PUT')) {
-            $validator = Validator::make($request->all(), (new LocationRequest())->rules());
+            $validator = Validator::make($request->all(), (new LocationUpdateRequest())->rules());
             if ($validator->fails()) {
                 $errormsg = "";
                 foreach ($validator->errors()->all() as $error) {

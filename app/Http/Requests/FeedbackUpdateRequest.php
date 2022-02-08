@@ -24,7 +24,7 @@ class FeedbackUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'comment' => 'required|string|max:255',
+            'comment' => 'string|max:255',
         ];
     }
 }

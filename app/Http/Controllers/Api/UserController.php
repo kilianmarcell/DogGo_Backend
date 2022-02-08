@@ -91,7 +91,7 @@ class UserController extends Controller
     public function update(UserUpdateRequest $request, int $id)
     {
         if ($request->isMethod('PUT')) {
-            $validator = Validator::make($request->all(), (new UserRequest())->rules());
+            $validator = Validator::make($request->all(), (new UserUpdateRequest())->rules());
             if($validator->fails()) {
                 $errormsg = "";
                 foreach ($validator->errors()->all() as $error) {

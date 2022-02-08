@@ -24,9 +24,9 @@ class LocationUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string|max:255',
-            'lat' => 'required|numeric',
-            'lng' => 'required|numeric',
+            'name' => 'string|max:255',
+            'lat' => 'numeric',
+            'lng' => 'numeric',
         ];
     }
 }

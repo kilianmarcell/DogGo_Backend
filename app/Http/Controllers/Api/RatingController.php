@@ -92,7 +92,7 @@ class RatingController extends Controller
     public function update(RatingUpdateRequest $request, int $id)
     {
         if ($request->isMethod('PUT')) {
-            $validator = Validator::make($request->all(), (new RatingRequest())->rules());
+            $validator = Validator::make($request->all(), (new RatingUpdateRequest())->rules());
             if ($validator->fails()) {
                 $errormsg = "";
                 foreach ($validator->errors()->all() as $error) {
