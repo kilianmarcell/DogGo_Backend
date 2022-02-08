@@ -1,10 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\FeedbackRequest;
+use App\Http\Requests\FeedbackUpdateRequest;
 use App\Models\Feedback;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class FeedbackController extends Controller
 {
@@ -35,8 +38,17 @@ class FeedbackController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(FeedbackRequest $request)
+    public function store(Request $request)
     {
+        $validator = Validator::make($request->all(), (new FeedbackRequest())->rules());
+        if ($validator->fails()) {
+            $errormsg = "";
+            foreach ($validator->errors()->all() as $error) {
+                $errormsg .= $error . " ";
+            }
+            $errormsg = trim($errormsg);
+            return response()->json($errormsg, 400);
+        }
         $feedback = new Feedback();
         $feedback->fill($request->all());
         $feedback->save();
@@ -51,7 +63,10 @@ class FeedbackController extends Controller
      */
     public function show(int $id)
     {
-        $feedback = Feedback::findOrFail($id);
+        $feedback = Feedback::find($id);
+        if (is_null($feedback)) {
+            return response()->json(["message" => "A megadott azonosítóval nem található visszajelzés."], 404);
+        }
         return response()->json($feedback);
     }
 
@@ -73,9 +88,23 @@ class FeedbackController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(FeedbackRequest $request, int $id)
+    public function update(FeedbackUpdateRequest $request, int $id)
     {
-        $feedback = Feedback::findOrFail($id);
+        if ($request->isMethod('PUT')) {
+            $validator = Validator::make($request->all(), (new FeedbackRequest())->rules());
+            if($validator->fails()) {
+                $errormsg = "";
+                foreach ($validator->errors()->all() as $error) {
+                    $errormsg .= $error . " ";
+                }
+                $errormsg = trim($errormsg);
+                return response()->json($errormsg, 400);
+            }
+        }
+        $feedback = Feedback::find($id);
+        if (is_null($feedback)) {
+            return response()->json(["message" => "A megadott azonosítóval nem található visszajelző."], 404);
+        }
         $feedback->fill($request->all());
         $feedback->save();
         return response()->json($feedback, 200);
@@ -89,6 +118,10 @@ class FeedbackController extends Controller
      */
     public function destroy(int $id)
     {
+        $feedback = Feedback::find($id);
+        if (is_null($feedback)) {
+            return response()->json(["message" => "A megadott azonosítóval nem található visszajelző."], 404);
+        }
         Feedback::destroy($id);
         return response()->noContent();
     }

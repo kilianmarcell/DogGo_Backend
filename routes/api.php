@@ -1,9 +1,9 @@
 <?php
 
-use App\Http\Controllers\FeedbackController;
-use App\Http\Controllers\LocationController;
-use App\Http\Controllers\RatingController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\Api\FeedbackController;
+use App\Http\Controllers\Api\LocationController;
+use App\Http\Controllers\Api\RatingController;
+use App\Http\Controllers\Api\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
