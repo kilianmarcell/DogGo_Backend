@@ -8,4 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Rating extends Model
 {
     use HasFactory;
+
+    protected $table = 'ratings';
+    
+    protected $visible = [
+        'id',
+        'stars',
+        'description',
+    ];
+
+    protected $fillable = [
+        'stars',
+        'description',
+    ];
 }
