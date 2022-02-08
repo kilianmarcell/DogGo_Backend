@@ -8,6 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class User extends Model
 {
     use HasFactory;
+    
+    public function ratings() {
+        return $this->hasMany(Rating::class);
+    }
+    
+    public function locations() {
+        return $this->hasMany(Location::class);
+    }
 
     protected $table = 'users';
     

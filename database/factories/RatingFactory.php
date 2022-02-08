@@ -16,6 +16,8 @@ class RatingFactory extends Factory
         return [
             'stars' => $this->faker->numberBetween(1, 5),
             'description' => $this->faker->text(),
+            'location_id' => 1,
+            'user_id' => 1,
         ];
     }
 }

@@ -17,6 +17,7 @@ class LocationFactory extends Factory
             'name' => $this->faker->streetName(),
             'lat' => $this->faker->latitude(),
             'lng' => $this->faker->longitude(),
+            'user_id' => 1,
         ];
     }
 }
