@@ -12,13 +12,13 @@ class User extends Model
     protected $table = 'users';
     
     protected $visible = [
+        'id',
         'username',
         'email',
         'permission',
     ];
 
     protected $hidden = [
-        'id',
         'password',
     ];
 
