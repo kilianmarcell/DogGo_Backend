@@ -7,6 +7,7 @@ use App\Http\Requests\UserRequest;
 use App\Http\Requests\UserUpdateRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
@@ -51,7 +52,9 @@ class UserController extends Controller
         }
         $user = new User();
         $user->fill($request->all());
-        $user->save();
+        $user->fill([
+            'password' => Hash::make($request->input('password'))
+        ])->save();
         return response()->json($user, 201);
     }
 
