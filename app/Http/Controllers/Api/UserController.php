@@ -19,7 +19,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = User::all();
+        $user = User::with('ratings')
+            ->select('users.*', 'ratings.description', 'ratings.stars')
+            ->leftjoin('ratings', 'user_id', '=', 'users.id')
+            ->get('users.*');
         return response()->json($user);
     }
 
@@ -66,7 +69,12 @@ class UserController extends Controller
      */
     public function show(int $id)
     {
-        $user = User::find($id);
+        $user = User::with('ratings')
+        ->select('users.*', 'ratings.description', 'ratings.stars')
+        ->leftjoin('ratings', 'user_id', '=', 'users.id')
+        ->where('users.id', $id)
+        ->get('users.*');
+        
         if (is_null($user)) {
             return response()->json(["message" => "A megadott azonosítóval nem található felhasználó."], 404);
         }
