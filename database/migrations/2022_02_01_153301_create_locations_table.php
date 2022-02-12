@@ -19,9 +19,10 @@ class CreateLocationsTable extends Migration
             $table->string('name');
             $table->double('lat')->nullable();
             $table->double('lng')->nullable();
-            $table->foreignIdFor(User::class)
-                ->constrained()
-                ->onDelete('cascade');
+            $table->foreignId('user_id')
+                ->constrained('users')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->timestamps();
         });
     }

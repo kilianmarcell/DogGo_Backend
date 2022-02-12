@@ -19,12 +19,14 @@ class CreateRatingsTable extends Migration
             $table->id();
             $table->integer('stars');
             $table->string('description');
-            $table->foreignIdFor(Location::class)
-                ->constrained()
-                ->onDelete('cascade');
-            $table->foreignIdFor(User::class)
-                ->constrained()
-                ->onDelete('cascade');
+            $table->foreignId('location_id')
+                ->constrained('locations')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+            $table->foreignId('user_id')
+                ->constrained('users')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->timestamps();
         });
     }
