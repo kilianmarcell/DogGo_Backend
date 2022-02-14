@@ -18,7 +18,7 @@ class CreateRatingsTable extends Migration
         Schema::create('ratings', function (Blueprint $table) {
             $table->id();
             $table->integer('stars');
-            $table->string('description');
+            $table->string('description')->nullable();
             $table->foreignId('location_id')
                 ->constrained('locations')
                 ->onDelete('cascade')
