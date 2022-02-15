@@ -24,7 +24,7 @@ class RatingUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'stars' => 'numeric|min:1|max:1',
+            'stars' => 'numeric|max:1',
             'description' => 'nullable|string|max:250',
         ];
     }
