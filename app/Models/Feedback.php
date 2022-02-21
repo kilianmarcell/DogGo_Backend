@@ -14,9 +14,12 @@ class Feedback extends Model
     protected $visible = [
         'id',
         'comment',
+        'read',
+        'created_at',
     ];
 
     protected $fillable = [
         'comment',
+        'read',
     ];
 }
