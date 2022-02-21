@@ -25,6 +25,7 @@ class FeedbackUpdateRequest extends FormRequest
     {
         return [
             'comment' => 'string|max:255',
+            'read' => 'boolean',
         ];
     }
 }

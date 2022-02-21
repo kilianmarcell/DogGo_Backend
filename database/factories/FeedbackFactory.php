@@ -15,7 +15,7 @@ class FeedbackFactory extends Factory
     {
         return [
             'comment' => $this->faker->text(),
-            'read' => 0,
+            'read' => $this->faker->boolean(),
         ];
     }
 }

@@ -22,4 +22,8 @@ class Feedback extends Model
         'comment',
         'read',
     ];
+
+    protected $casts = [
+        'read' => 'boolean',
+    ];
 }
