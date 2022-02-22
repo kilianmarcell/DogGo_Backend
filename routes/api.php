@@ -4,7 +4,7 @@ use App\Http\Controllers\Api\FeedbackController;
 use App\Http\Controllers\Api\LocationController;
 use App\Http\Controllers\Api\RatingController;
 use App\Http\Controllers\Api\UserController;
-use App\Http\Controllers\LegjobbErtekelesController;
+use App\Http\Controllers\RatingAVGController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,4 +26,5 @@ Route::apiResource('/feedbacks', FeedbackController::class);
 
 Route::apiResource('/ratings', RatingController::class);
 
-Route::apiResource('/rating_legjobb', LegjobbErtekelesController::class);
+Route::get('/best_rating', [ RatingAVGController::class, 'getBest' ]);
+Route::get('/worst_rating', [ RatingAVGController::class, 'getWorst' ]);
