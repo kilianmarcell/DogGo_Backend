@@ -19,6 +19,7 @@ class CreateLocationsTable extends Migration
             $table->string('name');
             $table->double('lat')->nullable();
             $table->double('lng')->nullable();
+            $table->tinyInteger('allowed')->default(false);
             $table->foreignId('user_id')
                 ->constrained('users')
                 ->onDelete('cascade')

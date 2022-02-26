@@ -27,6 +27,7 @@ class LocationRequest extends FormRequest
             'name' => 'required|string|max:255',
             'lat' => 'required|numeric',
             'lng' => 'required|numeric',
+            'allowed' => 'boolean',
         ];
     }
 }

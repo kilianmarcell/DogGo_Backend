@@ -23,7 +23,8 @@ class Location extends Model
         'id',
         'name',
         'lat',
-        'lng',        
+        'lng',
+        'allowed',        
         'user_id'
     ];
 
@@ -31,6 +32,11 @@ class Location extends Model
         'name',
         'lat',
         'lng',
+        'allowed',
         'user_id'
+    ];
+
+    protected $casts = [
+        'allowed' => 'boolean',
     ];
 }
