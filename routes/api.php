@@ -4,7 +4,9 @@ use App\Http\Controllers\Api\FeedbackController;
 use App\Http\Controllers\Api\LocationController;
 use App\Http\Controllers\Api\RatingController;
 use App\Http\Controllers\Api\UserController;
-use App\Http\Controllers\RatingAVGController;
+use App\Http\Controllers\Api\FeedbackFilterController;
+use App\Http\Controllers\Api\LocationFilterController;
+use App\Http\Controllers\Api\RatingAVGController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,3 +30,9 @@ Route::apiResource('/ratings', RatingController::class);
 
 Route::get('/best_rating', [ RatingAVGController::class, 'getBest' ]);
 Route::get('/worst_rating', [ RatingAVGController::class, 'getWorst' ]);
+
+Route::get('/locations_allowed', [LocationFilterController::class, 'getAllowed']);
+Route::get('/locations_not_allowed', [LocationFilterController::class, 'getNotAllowed']);
+
+Route::get('/feedbacks_read', [FeedbackFilterController::class, 'getRead']);
+Route::get('/feedbacks_not_read', [FeedbackFilterController::class, 'getNotRead']);
