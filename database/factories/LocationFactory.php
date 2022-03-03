@@ -15,6 +15,7 @@ class LocationFactory extends Factory
     {
         return [
             'name' => $this->faker->streetName(),
+            'description' => $this->faker->realText(),
             'lat' => $this->faker->latitude(),
             'lng' => $this->faker->longitude(),
             'allowed' => $this->faker->boolean(),

@@ -22,6 +22,7 @@ class Location extends Model
     protected $visible = [
         'id',
         'name',
+        'description',
         'lat',
         'lng',
         'allowed',        
@@ -31,6 +32,7 @@ class Location extends Model
 
     protected $fillable = [
         'name',
+        'description',
         'lat',
         'lng',
         'allowed',
