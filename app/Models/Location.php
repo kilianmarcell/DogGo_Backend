@@ -34,7 +34,9 @@ class Location extends Model
         'name',
         'description',
         'lat',
-        'lng'
+        'lng',
+        'allowed',
+        'user_id'
     ];
 
     protected $casts = [
