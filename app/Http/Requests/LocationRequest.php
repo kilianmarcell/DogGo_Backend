@@ -25,6 +25,7 @@ class LocationRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
+            'description' => 'string|max:',
             'lat' => 'required|numeric',
             'lng' => 'required|numeric',
             'allowed' => 'boolean',
