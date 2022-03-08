@@ -17,9 +17,9 @@ class CreateLocationsTable extends Migration
         Schema::create('locations', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('description');
-            $table->double('lat')->nullable();
-            $table->double('lng')->nullable();
+            $table->string('description')->nullable();
+            $table->double('lat');
+            $table->double('lng');
             $table->tinyInteger('allowed')->default(false);
             $table->foreignId('user_id')
                 ->constrained('users')
