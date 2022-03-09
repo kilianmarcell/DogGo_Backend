@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\FeedbackController;
 use App\Http\Controllers\Api\LocationController;
 use App\Http\Controllers\Api\RatingController;
@@ -7,6 +8,7 @@ use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\FeedbackFilterController;
 use App\Http\Controllers\Api\LocationFilterController;
 use App\Http\Controllers\Api\RatingAVGController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,3 +38,6 @@ Route::get('/locations_not_allowed', [LocationFilterController::class, 'getNotAl
 
 Route::get('/feedbacks_read', [FeedbackFilterController::class, 'getRead']);
 Route::get('/feedbacks_not_read', [FeedbackFilterController::class, 'getNotRead']);
+
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/register', [RegisteredUserController::class, 'register']);

@@ -67,7 +67,7 @@ class UserController extends Controller
     public function show(int $id)
     {
         $user = User::find($id);
-        
+
         if (is_null($user)) {
             return response()->json(["message" => "A megadott azonosítóval nem található felhasználó."], 404);
         }
