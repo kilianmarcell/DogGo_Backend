@@ -25,7 +25,7 @@ class RatingUpdateRequest extends FormRequest
     {
         return [
             'stars' => 'numeric|min:1|max:5',
-            'description' => 'nullable|string|max:250',
+            'description' => 'nullable|string|max:255',
         ];
     }
 }
