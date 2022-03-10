@@ -13,7 +13,7 @@ class AuthController extends Controller
         $credentials = $request->only(['email', 'password']);
         if (Auth::once($credentials)) {
             $token = Auth::user()->createToken('apitoken');
-            return response()->json(Auth::user());
+            return response()->json(['token' => $token->plainTextToken]);
         } else {
             return response()->json(['message' => 'Invalid email or password']);
         }
