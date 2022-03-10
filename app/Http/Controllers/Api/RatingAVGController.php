@@ -14,8 +14,7 @@ class RatingAVGController extends Controller
              ->select('locations.name', Location::raw('ROUND(AVG(ratings.stars), 1) as atlag'))
              ->groupBy('locations.name')
              ->orderBy('atlag', 'desc')
-             ->limit(1)
-             ->get('locations.name', 'atlag');
+             ->first('locations.name', 'atlag');
 
              return response()->json($location);
     }
@@ -26,8 +25,7 @@ class RatingAVGController extends Controller
              ->select('locations.name', Location::raw('ROUND(AVG(ratings.stars), 1) as atlag'))
              ->groupBy('locations.name')
              ->orderBy('atlag', 'asc')
-             ->limit(1)
-             ->get('locations.name', 'atlag');
+             ->first('locations.name', 'atlag');
 
              return response()->json($location);
     }
