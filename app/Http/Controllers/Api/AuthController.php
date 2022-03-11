@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -17,9 +16,5 @@ class AuthController extends Controller
         } else {
             return response()->json(['message' => 'Helytelen felhasználónév vagy jelszó']);
         }
-    }
-
-    public function user(Request $request) {
-        Auth::user();
     }
 }
