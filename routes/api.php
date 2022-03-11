@@ -54,4 +54,4 @@ Route::get('/read_feedback_count', [FeedbackCountController::class, 'getReadFeed
 Route::get('/new_feedback_count', [FeedbackCountController::class, 'getNewFeedbackCount']);
 
 Route::post('/login', [AuthController::class, 'login']);
-Route::post('/register', [RegisteredUserController::class, 'register']);
+Route::post('/register', [AuthController::class, 'register']);
