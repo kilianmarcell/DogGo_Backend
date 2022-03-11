@@ -58,4 +58,4 @@ Route::post('/register', [AuthController::class, 'register']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
      return $request->user();
- });
+ });    //https://laravel.com/docs/9.x/sanctum#spa-authentication
