@@ -11,7 +11,6 @@ use App\Http\Controllers\Api\LocationCountController;
 use App\Http\Controllers\Api\LocationFilterController;
 use App\Http\Controllers\Api\RatingAVGController;
 use App\Http\Controllers\Api\UserCountController;
-use App\Models\Feedback;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -54,8 +53,8 @@ Route::get('/read_feedback_count', [FeedbackCountController::class, 'getReadFeed
 Route::get('/new_feedback_count', [FeedbackCountController::class, 'getNewFeedbackCount']);
 
 Route::post('/login', [AuthController::class, 'login']);
-Route::post('/register', [AuthController::class, 'register']);
+Route::post('/register', [UserController::class, 'store']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
      return $request->user();
- });
+ });    //https://laravel.com/docs/9.x/sanctum#spa-authentication
