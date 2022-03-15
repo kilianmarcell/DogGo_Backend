@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Location;
+use App\Models\Rating;
 use Illuminate\Http\Request;
 
 class RatingAVGController extends Controller
@@ -28,5 +29,10 @@ class RatingAVGController extends Controller
              ->first('locations.name', 'atlag');
 
              return response()->json($location);
+    }
+
+    public function getRatingByUser(int $id) {
+        $ratings = Rating::where('user_id', '=', $id)->get();
+        return response()->json($ratings);
     }
 }

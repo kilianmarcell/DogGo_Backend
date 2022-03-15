@@ -35,6 +35,7 @@ Route::apiResource('/ratings', RatingController::class);
 
 Route::get('/best_rating', [ RatingAVGController::class, 'getBest' ]);
 Route::get('/worst_rating', [ RatingAVGController::class, 'getWorst' ]);
+Route::get('/rating_by_user/{id}', [ RatingAVGController::class, 'getRatingByUser' ]);
 
 Route::get('/locations_allowed', [ LocationFilterController::class, 'getAllowed' ]);
 Route::get('/locations_not_allowed', [ LocationFilterController::class, 'getNotAllowed' ]);
