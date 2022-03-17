@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\Hash;
 
 class UserFactory extends Factory
 {
@@ -14,9 +15,9 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'username' => $this->faker->name(),
+            'username' => $this->faker->username(),
             'email' => $this->faker->unique()->safeEmail(),
-            'password' => $this->faker->password(),
+            'password' => Hash::make("admin"),
             'permission' => $this->faker->numberBetween(0, 3),
         ];
     }

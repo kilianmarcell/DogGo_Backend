@@ -14,7 +14,7 @@ class AuthController extends Controller
             $token = Auth::user()->createToken('apitoken');
             return response()->json(['token' => $token->plainTextToken]);
         } else {
-            return response()->json(['message' => 'Helytelen felhasználónév vagy jelszó']);
+            return response()->json(['message' => 'Helytelen felhasználónév vagy jelszó'], 401);
         }
     }
 }
