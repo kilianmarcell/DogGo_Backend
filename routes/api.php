@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\FeedbackController;
 use App\Http\Controllers\Api\FeedbackCountController;
 use App\Http\Controllers\Api\LocationController;
@@ -53,7 +52,7 @@ Route::get('/new_location_count', [ LocationCountController::class, 'getNewLocat
 Route::get('/read_feedback_count', [FeedbackCountController::class, 'getReadFeedbackCount']);
 Route::get('/new_feedback_count', [FeedbackCountController::class, 'getNewFeedbackCount']);
 
-Route::post('/login', [AuthController::class, 'login']);
+Route::post('/login', [UserController::class, 'login']);
 Route::post('/register', [UserController::class, 'store']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
