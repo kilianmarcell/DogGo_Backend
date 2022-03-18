@@ -7,6 +7,7 @@ use App\Http\Requests\UserRequest;
 use App\Http\Requests\UserUpdateRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -56,6 +57,16 @@ class UserController extends Controller
             'password' => Hash::make($request->input('password'))
         ])->save();
         return response()->json($user, 201);
+    }
+
+    public function login(Request $request) {
+        $credentials = $request->only(['username', 'password']);
+        if (Auth::once($credentials)) {
+            $token = Auth::user()->createToken('apitoken');
+            return response()->json(['token' => $token->plainTextToken]);
+        } else {
+            return response()->json(['message' => 'Helytelen felhasználónév vagy jelszó'], 401);
+        }
     }
 
     /**
