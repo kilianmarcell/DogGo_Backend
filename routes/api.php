@@ -27,6 +27,7 @@ use Illuminate\Support\Facades\Route;
 Route::apiResource('/users', UserController::class);
 
 Route::apiResource('/locations', LocationController::class);
+Route::get('/user_locations/{id}', [ LocationController::class, 'getLocationsById']);
 
 Route::apiResource('/feedbacks', FeedbackController::class);
 

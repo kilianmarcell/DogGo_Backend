@@ -22,6 +22,11 @@ class LocationController extends Controller
         return response()->json($locations);
     }
 
+    public function getLocationsById(int $id) {
+        $locations = Location::where('user_id', '=', $id)->get();
+        return response()->json($locations);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
