@@ -123,7 +123,9 @@ class UserController extends Controller
         }
 
         $user->fill($request->all());
-        $user->save();
+        $user->fill([
+            'password' => Hash::make($request->input('password'))
+        ])->save();
         return response()->json($user, 200);
     }
 
