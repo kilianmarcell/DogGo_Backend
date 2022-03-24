@@ -35,4 +35,9 @@ class RatingAVGController extends Controller
         $ratings = Rating::where('user_id', '=', $id)->get();
         return response()->json($ratings);
     }
+
+    public function getRatingByLocation(int $id) {
+        $ratings = Rating::where('location_id', '=', $id)->get();
+        return response()->json($ratings);
+    }
 }
