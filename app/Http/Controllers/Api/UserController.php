@@ -122,10 +122,7 @@ class UserController extends Controller
             return response()->json(["message" => "A megadott azonosítóval nem található felhasználó."], 404);
         }
 
-        $user->fill($request->all());
-        $user->fill([
-            'password' => Hash::make($request->input('password'))
-        ])->save();
+        $user->fill($request->all())->save();
         return response()->json($user, 200);
     }
 
