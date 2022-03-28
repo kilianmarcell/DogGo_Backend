@@ -14,8 +14,7 @@ class FeedbackFactory extends Factory
     public function definition()
     {
         return [
-            'comment' => $this->faker->realText(),
-            'read' => $this->faker->boolean(),
+            'comment' => $this->faker->realText()
         ];
     }
 }

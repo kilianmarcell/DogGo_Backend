@@ -19,8 +19,7 @@ class Feedback extends Model
     ];
 
     protected $fillable = [
-        'comment',
-        'read',
+        'comment'
     ];
 
     protected $casts = [
