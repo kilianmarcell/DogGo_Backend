@@ -24,10 +24,10 @@ class RatingAVGController extends Controller
     public function getAvgRatingOfLocation(int $id) {
         $location = Location::with('ratings')
              ->join('ratings', 'location_id', '=', 'locations.id')
-             ->select('locations.name', Location::raw('ROUND(AVG(ratings.stars), 1) as atlag'))
+             ->select('locations.id', Location::raw('ROUND(AVG(ratings.stars), 1) as atlag'))
              ->where('location_id', $id)
-             ->groupBy('locations.name')
-             ->first('locations.name', 'atlag');
+             ->groupBy('locations.id')
+             ->first('locations.id', 'atlag');
 
              return response()->json($location);
     }
