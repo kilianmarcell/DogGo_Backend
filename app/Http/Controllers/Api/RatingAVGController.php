@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Location;
 use App\Models\Rating;
 use Illuminate\Http\Request;
+use Psy\Command\WhereamiCommand;
 
 class RatingAVGController extends Controller
 {
@@ -15,6 +16,17 @@ class RatingAVGController extends Controller
              ->select('locations.name', Location::raw('ROUND(AVG(ratings.stars), 1) as atlag'))
              ->groupBy('locations.name')
              ->orderBy('atlag', 'desc')
+             ->first('locations.name', 'atlag');
+
+             return response()->json($location);
+    }
+
+    public function getAvgRatingOfLocation(int $id) {
+        $location = Location::with('ratings')
+             ->join('ratings', 'location_id', '=', 'locations.id')
+             ->select('locations.name', Location::raw('ROUND(AVG(ratings.stars), 1) as atlag'))
+             ->where('location_id', $id)
+             ->groupBy('locations.name')
              ->first('locations.name', 'atlag');
 
              return response()->json($location);

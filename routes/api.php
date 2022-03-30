@@ -37,6 +37,7 @@ Route::get('/best_rating', [ RatingAVGController::class, 'getBest' ]);
 Route::get('/worst_rating', [ RatingAVGController::class, 'getWorst' ]);
 Route::get('/rating_by_user/{id}', [ RatingAVGController::class, 'getRatingByUser' ]);
 Route::get('/rating_by_location/{id}', [ RatingAVGController::class, 'getRatingByLocation' ]);
+Route::get('/location_avgrating/{id}', [ RatingAVGController::class, 'getAvgRatingOfLocation']);
 
 Route::get('/locations_allowed', [ LocationFilterController::class, 'getAllowed' ]);
 Route::get('/locations_not_allowed', [ LocationFilterController::class, 'getNotAllowed' ]);
