@@ -57,7 +57,7 @@ class LocationSeeder extends Seeder
             'description' => 'Nagyon kedves volt minenki, mindent érthetően le tudtunk beszélni, minden rendben volt a rendeléssel, a kiskedvencünk is megfelelő ellátást kapott!',
             'lat' => 47.5060349,
             'lng' => 19.07362,
-            'allowed' => false,
+            'allowed' => true,
             'user_id' => 5,
         ]);
 
@@ -75,7 +75,7 @@ class LocationSeeder extends Seeder
             'description' => 'A város zaja egyeltalán nem hallatszódik, olyan mintha nem is Budapesten lennék, teljesen elvarázsol ez a hely!',
             'lat' => 47.5066425292158,
             'lng' => 18.961865246036687,
-            'allowed' => false,
+            'allowed' => true,
             'user_id' => 4,
         ]);
 
@@ -84,7 +84,7 @@ class LocationSeeder extends Seeder
             'description' => 'Kellemes élmény volt körbesétálni a szigetet. Több helyen is megálltunk, számtalan hely alkalmas a kutyafuttatásra, piknikezésre, mindenkinek tudom ajánlani!',
             'lat' => 47.526773338102664,
             'lng' => 19.04641313900643,
-            'allowed' => false,
+            'allowed' => true,
             'user_id' => 1,
         ]);
 
@@ -93,7 +93,7 @@ class LocationSeeder extends Seeder
             'description' => 'Nagyon nyugodt hely, egy délutáni sétára tökéletes hely. A közelben a dombokon is lehet sétálni, az extrémebb biciklizésre is tökéletes hely.',
             'lat' => 47.50911699363903, 
             'lng' => 19.24720391573441,
-            'allowed' => false,
+            'allowed' => true,
             'user_id' => 5,
         ]);
 
@@ -102,7 +102,7 @@ class LocationSeeder extends Seeder
             'description' => 'Kellemes csalódást okozott ez a hely, a kicsit hangos háttérzaj ellenére kellemes időt tudtam eltölteni családommal itt.',
             'lat' => 47.481421467218205,
             'lng' => 19.10947361517664,
-            'allowed' => false,
+            'allowed' => true,
             'user_id' => 4,
         ]);
     }
