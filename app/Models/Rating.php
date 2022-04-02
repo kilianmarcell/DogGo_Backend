@@ -24,7 +24,8 @@ class Rating extends Model
         'stars',
         'description',
         'user_id',
-        'location_id'
+        'location_id',
+        'username'
     ];
 
     protected $fillable = [

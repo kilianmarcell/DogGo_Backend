@@ -37,6 +37,7 @@ Route::get('/best_rating', [ RatingAVGController::class, 'getBest' ]);
 Route::get('/worst_rating', [ RatingAVGController::class, 'getWorst' ]);
 Route::get('/rating_by_user/{id}', [ RatingAVGController::class, 'getRatingByUser' ]);
 Route::get('/rating_by_location/{id}', [ RatingAVGController::class, 'getRatingByLocation' ]);
+Route::get('/rating_by_location_with_username/{id}', [ RatingAVGController::class, 'getRatingByLocationWithUsername' ]);
 Route::get('/location_avgrating/{id}', [ RatingAVGController::class, 'getAvgRatingOfLocation']);
 Route::get('/locations_avgrating', [ RatingAVGController::class, 'getAvgRatingOfLocations']);
 
