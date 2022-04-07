@@ -103,7 +103,7 @@ class LocationController extends Controller
                     $errormsg .= $error . " ";
                 }
                 $errormsg = trim($errormsg);
-                return response()->json($errormsg, 400);
+                return response()->json(["message" => $errormsg], 400);
             }
         }
         $location = Location::find($id);

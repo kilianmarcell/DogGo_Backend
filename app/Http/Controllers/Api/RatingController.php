@@ -99,7 +99,7 @@ class RatingController extends Controller
                     $errormsg .= $error . " ";
                 }
                 $errormsg = trim($errormsg);
-                return response()->json($errormsg, 400);
+                return response()->json(["message" => $errormsg], 400);
             }
         }
         $rating = Rating::find($id);

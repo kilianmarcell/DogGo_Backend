@@ -98,7 +98,7 @@ class FeedbackController extends Controller
                     $errormsg .= $error . " ";
                 }
                 $errormsg = trim($errormsg);
-                return response()->json($errormsg, 400);
+                return response()->json(["message" => $errormsg], 400);
             }
         }
         $feedback = Feedback::find($id);
