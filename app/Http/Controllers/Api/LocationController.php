@@ -93,7 +93,7 @@ class LocationController extends Controller
      * @param  \App\Models\Location  $location
      * @return \Illuminate\Http\Response
      */
-    public function update(LocationUpdateRequest $request, int $id)
+    public function update(Request $request, int $id)
     {
         if ($request->isMethod('PUT')) {
             $validator = Validator::make($request->all(), (new LocationUpdateRequest())->rules());

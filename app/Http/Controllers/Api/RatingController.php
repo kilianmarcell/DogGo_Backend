@@ -89,7 +89,7 @@ class RatingController extends Controller
      * @param  \App\Models\Rating  $rating
      * @return \Illuminate\Http\Response
      */
-    public function update(RatingUpdateRequest $request, int $id)
+    public function update(Request $request, int $id)
     {
         if ($request->isMethod('PUT')) {
             $validator = Validator::make($request->all(), (new RatingUpdateRequest())->rules());

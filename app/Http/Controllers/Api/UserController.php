@@ -105,7 +105,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UserUpdateRequest $request, int $id)
+    public function update(Request $request, int $id)
     {
         if ($request->isMethod('PUT')) {
             $validator = Validator::make($request->all(), (new UserUpdateRequest())->rules());
