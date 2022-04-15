@@ -16,6 +16,7 @@ class RatingAVGController extends Controller
              ->select('locations.name', Location::raw('ROUND(AVG(ratings.stars), 1) as atlag'))
              ->groupBy('locations.name')
              ->orderBy('atlag', 'desc')
+             ->where('allowed', '1')
              ->first('locations.name', 'atlag');
 
              return response()->json($location);
