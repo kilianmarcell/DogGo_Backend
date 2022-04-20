@@ -72,7 +72,7 @@ class LocationSeeder extends Seeder
 
         \App\Models\Location::factory()->create([
             'name' => 'Normafa',
-            'description' => 'A város zaja egyeltalán nem hallatszódik, olyan mintha nem is Budapesten lennék, teljesen elvarázsol ez a hely!',
+            'description' => 'A város zaja egyáltalán nem hallatszódik, olyan mintha nem is Budapesten lennék, teljesen elvarázsol ez a hely!',
             'lat' => 47.5066425292158,
             'lng' => 18.961865246036687,
             'allowed' => true,

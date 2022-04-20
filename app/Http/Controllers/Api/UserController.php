@@ -63,9 +63,15 @@ class UserController extends Controller
 
     public function login(Request $request) {
         $credentials = $request->only(['username', 'password']);
-        if (Auth::once($credentials)) {
-            $token = Auth::user()->createToken('apitoken');
-            return response()->json(['token' => $token->plainTextToken]);
+        if (Auth::once($credentials)) {            
+            $user = User::where("username", $request->only("username"))->first();
+            if($user->permission == 1) {
+                return response()->json(['message' => "Ez a felhasználó ki van tiltva"], 403);
+            }
+            else {
+                $token = Auth::user()->createToken('apitoken');
+                return response()->json(['token' => $token->plainTextToken]);
+            }
         } else {
             return response()->json(['message' => 'Helytelen felhasználónév vagy jelszó'], 401);
         }
